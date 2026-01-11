@@ -1,3 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "tailwindcss";
+@plugin "daisyui";
+
+
+@plugin "daisyui/theme" {
+  name: "colombian";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(96% 0.007 247.896);
+  --color-base-300: oklch(98% 0.003 247.858);
+  --color-base-content: oklch(14% 0.004 49.25);
+  --color-primary: oklch(82% 0.189 84.429);
+  --color-primary-content: oklch(27% 0.077 45.635);
+  --color-secondary: oklch(68% 0.169 237.323);
+  --color-secondary-content: oklch(29% 0.066 243.157);
+  --color-accent: oklch(70% 0.191 22.216);
+  --color-accent-content: oklch(25% 0.092 26.042);
+  --color-neutral: oklch(13% 0.028 261.692);
+  --color-neutral-content: oklch(98% 0.002 247.839);
+  --color-info: oklch(88.127% 0.085 214.515);
+  --color-info-content: oklch(17.625% 0.017 214.515);
+  --color-success: oklch(72% 0.219 149.579);
+  --color-success-content: oklch(26% 0.065 152.934);
+  --color-warning: oklch(70% 0.213 47.604);
+  --color-warning-content: oklch(26% 0.079 36.259);
+  --color-error: oklch(51% 0.222 16.935);
+  --color-error-content: oklch(93% 0.032 17.717);
+  --radius-selector: 0.5rem;
+  --radius-field: 1rem;
+  --radius-box: 2rem;
+  --size-selector: 0.3125rem;
+  --size-field: 0.3125rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 0;
+}
