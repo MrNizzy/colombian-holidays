@@ -1,12 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui";
 
-
 @plugin "daisyui/theme" {
-  name: "colombian";
-  default: false;
+  name: 'colombian';
+  default: true;
   prefersdark: false;
-  color-scheme: "light";
+  color-scheme: 'light';
   --color-base-100: oklch(100% 0 0);
   --color-base-200: oklch(96% 0.007 247.896);
   --color-base-300: oklch(98% 0.003 247.858);

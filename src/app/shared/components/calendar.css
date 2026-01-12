@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+
+/* Smooth transitions for calendar navigation */
+::ng-deep .calendar-container > div {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure calendar grid is responsive */
+@media (max-width: 640px) {
+  ::ng-deep .calendar-container {
+    padding: 0.5rem;
+  }
+
+  ::ng-deep .grid-cols-7 {
+    gap: 0;
+  }
+
+  ::ng-deep [class*='min-h-20'] {
+    min-height: 4rem;
+  }
+}

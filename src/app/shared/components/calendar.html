@@ -1,0 +1,97 @@
+<div class="calendar-container mx-auto p-4">
+  <!-- Header with navigation -->
+  <div class="flex items-center justify-between mb-6 gap-4">
+    <button
+      (click)="previousMonth()"
+      class="btn btn-lg btn-outline"
+      [attr.aria-label]="'Mes anterior'"
+    >
+      <ngx-icon collection="solar" icon="arrow-left-linear" [width]="20" [height]="20" />
+      Anterior
+    </button>
+
+    <div class="flex-1 text-center">
+      <h2 class="text-2xl font-bold text-base-content first-letter:uppercase">
+        {{ monthYear() }}
+      </h2>
+    </div>
+
+    <button (click)="nextMonth()" class="btn btn-lg btn-outline" [attr.aria-label]="'Próximo mes'">
+      Siguiente
+      <ngx-icon collection="solar" icon="arrow-right-linear" [width]="20" [height]="20" />
+    </button>
+  </div>
+
+  <!-- Today button -->
+  <div class="mb-4 text-center">
+    <button (click)="goToToday()" class="btn btn-sm btn-ghost" [attr.aria-label]="'Ir a hoy'">
+      Hoy
+    </button>
+  </div>
+
+  <!-- Legend -->
+  <div class="mb-6 flex flex-wrap gap-4 justify-center text-sm">
+    <div class="flex items-center gap-2">
+      <div class="w-4 h-4 bg-primary rounded"></div>
+      <span>Hoy</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="w-4 h-4 bg-secondary/10 border border-secondary/30 rounded"></div>
+      <span>Día festivo</span>
+    </div>
+  </div>
+
+  <!-- Calendar table -->
+  <div class="overflow-x-auto">
+    <div class="grid grid-cols-7 gap-2 bg-base-300 p-1 rounded-lg">
+      <!-- Days of week header -->
+      @for (day of daysOfWeek; track $index) {
+      <div
+        class="bg-primary/50 text-primary-content text-center font-bold p-3 rounded-(--radius-field) text-sm truncate"
+      >
+        {{ day }}
+      </div>
+      }
+
+      <!-- Calendar days -->
+      @for (week of weeks(); track $index) { @for (day of week; track day.date.getTime()) {
+      <div
+        [class]="getDayClasses(day)"
+        [title]="day.isHoliday ? getHolidayTooltip(day) : ''"
+        class="cursor-pointer group"
+      >
+        <!-- Day number -->
+        <div class="font-bold text-2xl">
+          {{ getDayNumber(day) }}
+        </div>
+        <!-- Today indicator -->
+        @if (day.isToday) {
+        <div
+          role="alert"
+          class="alert bg-primary/10 text-primary-content border-none shadow-xs mt-2 group-hover:shadow-lg transition-all"
+        >
+          <ngx-icon collection="solar" icon="calendar-search-linear" [width]="20" [height]="20" />
+          <span>Hoy</span>
+        </div>
+        }
+
+        <!-- Holiday indicator -->
+        @if (day.isHoliday) {
+        <div class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></div>
+        <div
+          role="alert"
+          class="alert bg-secondary/10 text-secondary-content border-none shadow-xs mt-2 group-hover:shadow-lg transition-all"
+        >
+          <ngx-icon collection="solar" icon="gift-linear" [width]="20" [height]="20" />
+          <span>
+            {{ getHolidayTooltip(day) }}
+          </span>
+        </div>
+        }
+      </div>
+      } }
+    </div>
+  </div>
+
+  <app-list-holidays [month]="currentMonth()"></app-list-holidays>
+</div>
