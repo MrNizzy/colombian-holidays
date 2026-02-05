@@ -44,15 +44,17 @@ import { NgxIcon } from 'ngx-icons-extra';
               class="btn btn-circle btn-sm btn-ghost absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white border-none backdrop-blur-md"
               aria-label="Cerrar"
             >
-              <ngx-icon collection="solar" icon="close-circle-linear" />
+              <ngx-icon collection="tabler" icon="x" class="w-6 h-6" />
             </button>
           </div>
 
           <div class="p-6 sm:p-8 -mt-12 relative z-10">
             <!-- Header Section -->
             <div class="flex flex-col gap-2 mb-6">
-              <div class="badge badge-primary badge-outline font-semibold mb-1">
-                {{ holiday()?.category }}
+              <div
+                class="badge badge-primary badge-outline font-bold mb-1 uppercase tracking-wider text-[10px]"
+              >
+                {{ getTranslatedCategory(holiday()?.category) }}
               </div>
               <h2 class="text-3xl sm:text-4xl font-extrabold text-base-content tracking-tight">
                 {{ holiday()?.name }}
@@ -67,7 +69,7 @@ import { NgxIcon } from 'ngx-icons-extra';
               class="prose prose-sm sm:prose-base max-w-none text-base-content/80 leading-relaxed mb-8"
             >
               <p
-                class="first-letter:text-4xl first-letter:font-bold first-letter:text-primary first-letter:mr-1 first-letter:float-left"
+                class="first-letter:text-5xl first-letter:font-black first-letter:text-primary first-letter:mr-3 first-letter:float-left first-letter:leading-none first-letter:mt-1"
               >
                 {{ holiday()?.metadata?.description }}
               </p>
@@ -142,4 +144,17 @@ import { NgxIcon } from 'ngx-icons-extra';
 export class HolidayDetailDialog {
   readonly holiday = input<Holiday | null>(null);
   readonly close = output<void>();
+
+  getTranslatedCategory(category?: string): string {
+    switch (category) {
+      case 'FIXED':
+        return 'Fecha Fija';
+      case 'TRANSFERABLE':
+        return 'Lunes Festivo (Trasladable)';
+      case 'EASTER_BASED':
+        return 'Basado en Pascua';
+      default:
+        return category || '';
+    }
+  }
 }

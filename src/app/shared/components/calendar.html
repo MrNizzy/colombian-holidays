@@ -1,18 +1,18 @@
 <div class="calendar-container mx-auto p-2 sm:p-4">
   <!-- Header with navigation -->
-  <div class="flex items-center justify-between mb-4 sm:mb-6 gap-2 sm:gap-4">
+  <div class="flex items-center justify-between mb-4 sm:mb-6 gap-2">
     <button
       (click)="previousMonth()"
-      class="btn btn-md sm:btn-lg btn-outline flex-1 sm:flex-none"
+      class="btn btn-sm sm:btn-lg btn-outline flex-none"
       [attr.aria-label]="'Mes anterior'"
     >
       <ngx-icon collection="solar" icon="arrow-left-linear" [width]="18" [height]="18" />
-      <span class="hidden sm:inline">Anterior</span>
+      <span class="hidden sm:inline ml-2">Anterior</span>
     </button>
 
-    <div class="flex-1 text-center truncate">
+    <div class="flex-1 text-center min-w-0">
       <h2
-        class="text-xl sm:text-2xl font-black text-base-content first-letter:uppercase tracking-tight"
+        class="text-lg sm:text-2xl font-black text-base-content first-letter:uppercase tracking-tight leading-none"
       >
         {{ monthYear() }}
       </h2>
@@ -20,10 +20,10 @@
 
     <button
       (click)="nextMonth()"
-      class="btn btn-md sm:btn-lg btn-outline flex-1 sm:flex-none"
+      class="btn btn-sm sm:btn-lg btn-outline flex-none"
       [attr.aria-label]="'Próximo mes'"
     >
-      <span class="hidden sm:inline">Siguiente</span>
+      <span class="hidden sm:inline mr-2">Siguiente</span>
       <ngx-icon collection="solar" icon="arrow-right-linear" [width]="18" [height]="18" />
     </button>
   </div>
