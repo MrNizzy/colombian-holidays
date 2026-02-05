@@ -44,7 +44,7 @@ import { NgxIcon } from 'ngx-icons-extra';
               class="btn btn-circle btn-sm btn-ghost absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white border-none backdrop-blur-md"
               aria-label="Cerrar"
             >
-              <ngx-icon collection="tabler" icon="x" class="w-6 h-6" />
+              <ngx-icon collection="solar" icon="close-circle-linear" width="20" height="20" />
             </button>
           </div>
 
@@ -52,7 +52,7 @@ import { NgxIcon } from 'ngx-icons-extra';
             <!-- Header Section -->
             <div class="flex flex-col gap-2 mb-6">
               <div
-                class="badge badge-primary badge-outline font-bold mb-1 uppercase tracking-wider text-[10px]"
+                class="badge badge-secondary badge-outline font-bold mb-1 uppercase tracking-wider text-[10px]"
               >
                 {{ getTranslatedCategory(holiday()?.category) }}
               </div>

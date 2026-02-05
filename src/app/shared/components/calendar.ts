@@ -3,6 +3,7 @@ import { ColombianHolidays, isSameDate, Holiday } from '../utils/holidaysRule';
 import { NgxIcon } from 'ngx-icons-extra';
 import { ListHolidays } from './list-holidays';
 import { HolidayDetailDialog } from './holiday-detail-dialog';
+import { GoToDateDialog } from './go-to-date-dialog';
 
 interface CalendarDay {
   date: Date;
@@ -14,7 +15,7 @@ interface CalendarDay {
 
 @Component({
   selector: 'app-calendar',
-  imports: [NgxIcon, ListHolidays, HolidayDetailDialog],
+  imports: [NgxIcon, ListHolidays, HolidayDetailDialog, GoToDateDialog],
   templateUrl: './calendar.html',
   styleUrls: ['./calendar.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,6 +29,7 @@ export class Calendar {
   readonly currentMonth = signal(this.initialMonth() || new Date());
   readonly today = signal(new Date());
   readonly selectedHoliday = signal<Holiday | null>(null);
+  readonly isGoToDateOpen = signal(false);
 
   readonly monthYear = computed(() => {
     const date = this.currentMonth();
@@ -124,6 +126,11 @@ export class Calendar {
 
   closeHolidayDetail(): void {
     this.selectedHoliday.set(null);
+  }
+
+  onDateSelected(selection: { year: number; month: number }): void {
+    this.currentMonth.set(new Date(selection.year, selection.month, 1));
+    this.isGoToDateOpen.set(false);
   }
 
   getDayClasses(day: CalendarDay): string {
