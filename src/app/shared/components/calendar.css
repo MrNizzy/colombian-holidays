@@ -17,18 +17,3 @@
     transform: translateY(0);
   }
 }
-
-/* Ensure calendar grid is responsive */
-@media (max-width: 640px) {
-  ::ng-deep .calendar-container {
-    padding: 0.5rem;
-  }
-
-  ::ng-deep .grid-cols-7 {
-    gap: 0;
-  }
-
-  ::ng-deep [class*='min-h-20'] {
-    min-height: 4rem;
-  }
-}

@@ -1,24 +1,25 @@
 import { Component, ChangeDetectionStrategy, signal, computed, input, effect } from '@angular/core';
-import { ColombianHolidays, isSameDate } from '../utils/holidaysRule';
+import { ColombianHolidays, isSameDate, Holiday } from '../utils/holidaysRule';
 import { NgxIcon } from 'ngx-icons-extra';
 import { ListHolidays } from './list-holidays';
+import { HolidayDetailDialog } from './holiday-detail-dialog';
 
 interface CalendarDay {
   date: Date;
   isCurrentMonth: boolean;
   isToday: boolean;
   isHoliday: boolean;
-  holidayName?: string;
+  holiday?: Holiday;
 }
 
 @Component({
   selector: 'app-calendar',
-  imports: [NgxIcon, ListHolidays],
+  imports: [NgxIcon, ListHolidays, HolidayDetailDialog],
   templateUrl: './calendar.html',
   styleUrls: ['./calendar.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'block',
+    class: 'block w-full',
   },
 })
 export class Calendar {
@@ -26,6 +27,7 @@ export class Calendar {
 
   readonly currentMonth = signal(this.initialMonth() || new Date());
   readonly today = signal(new Date());
+  readonly selectedHoliday = signal<Holiday | null>(null);
 
   readonly monthYear = computed(() => {
     const date = this.currentMonth();
@@ -66,7 +68,7 @@ export class Calendar {
         isCurrentMonth,
         isToday,
         isHoliday: holiday !== null,
-        holidayName: holiday?.name,
+        holiday: holiday || undefined,
       });
 
       currentDate.setDate(currentDate.getDate() + 1);
@@ -114,29 +116,32 @@ export class Calendar {
     this.currentMonth.set(new Date());
   }
 
-  getDayNumber(day: CalendarDay): number {
-    return day.date.getDate();
+  openHolidayDetail(holiday?: Holiday): void {
+    if (holiday) {
+      this.selectedHoliday.set(holiday);
+    }
   }
 
-  getHolidayTooltip(day: CalendarDay): string {
-    return day.holidayName || '';
+  closeHolidayDetail(): void {
+    this.selectedHoliday.set(null);
   }
 
   getDayClasses(day: CalendarDay): string {
-    const base = 'relative p-2 min-h-20 rounded-(--radius-field) border-2 transition-colors';
+    const base =
+      'relative p-1.5 sm:p-2 min-h-16 sm:min-h-20 rounded-(--radius-field) border-2 transition-all duration-200';
 
     if (day.isToday) {
-      return `${base} bg-primary/50 text-primary-content font-semibold border-primary`;
+      return `${base} bg-primary/20 text-primary font-bold border-primary shadow-sm`;
     }
 
     if (day.isHoliday) {
-      return `${base} bg-secondary/10 border-secondary/30 text-secondary font-semibold`;
+      return `${base} bg-secondary/10 border-secondary/30 text-secondary font-semibold hover:bg-secondary/20`;
     }
 
     if (!day.isCurrentMonth) {
-      return `${base} opacity-20 bg-base-100`;
+      return `${base} opacity-20 bg-base-100 border-transparent`;
     }
 
-    return `${base} bg-base-100 border-base-200 hover:border-primary hover:bg-primary/5`;
+    return `${base} bg-base-100 border-base-200 hover:border-primary/50 hover:bg-primary/5`;
   }
 }

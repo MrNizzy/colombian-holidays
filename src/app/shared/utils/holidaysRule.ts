@@ -1,9 +1,12 @@
+import { HOLIDAY_METADATA, HolidayMetadata } from './holiday-metadata';
+
 // --- Modelos ---
 export interface Holiday {
   name: string;
   baseDate: Date;
   observedDate: Date;
   category: Category;
+  metadata?: HolidayMetadata;
 }
 
 export enum Category {
@@ -23,7 +26,10 @@ export abstract class HolidayRule {
 }
 
 export class Fixed extends HolidayRule {
-  constructor(private month: number, private day: number) {
+  constructor(
+    private month: number,
+    private day: number,
+  ) {
     super();
   }
 
@@ -33,7 +39,10 @@ export class Fixed extends HolidayRule {
 }
 
 export class TransferableToMonday extends HolidayRule {
-  constructor(private month: number, private day: number) {
+  constructor(
+    private month: number,
+    private day: number,
+  ) {
     super();
   }
 
@@ -165,18 +174,25 @@ export const ColombianHolidays = {
     return HOLIDAY_DEFINITIONS.map(({ name, category, rule }) => {
       const base = rule.baseDate(year, easter);
       const observed = rule.observedDate(year, easter);
-      return { name, baseDate: base, observedDate: observed, category };
+      return {
+        name,
+        baseDate: base,
+        observedDate: observed,
+        category,
+        metadata: HOLIDAY_METADATA[name],
+      };
     }).sort((a, b) => a.observedDate.getTime() - b.observedDate.getTime());
   },
 
   /** Retorna la Holiday si la fecha es festiva (según fecha observada). */
   getHoliday(date: Date): Holiday | null {
+    const yearHolidays = this.holidaysForYear(date.getFullYear());
     return (
-      this.holidaysForYear(date.getFullYear()).find(
+      yearHolidays.find(
         (holiday) =>
           holiday.observedDate.getFullYear() === date.getFullYear() &&
           holiday.observedDate.getMonth() === date.getMonth() &&
-          holiday.observedDate.getDate() === date.getDate()
+          holiday.observedDate.getDate() === date.getDate(),
       ) || null
     );
   },
