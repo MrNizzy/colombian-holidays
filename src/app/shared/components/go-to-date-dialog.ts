@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
       class="modal modal-open modal-bottom sm:modal-middle transition-all duration-300 backdrop-blur-sm bg-base-300/40"
     >
       <div
-        class="modal-box p-6 overflow-hidden border border-white/10 shadow-2xl max-w-sm bg-base-100/95 backdrop-blur-md animate-in fade-in zoom-in duration-300"
+        class="modal-box p-6 overflow-hidden border border-white/10 shadow-2xl w-full sm:max-w-sm bg-base-100/95 backdrop-blur-md animate-in fade-in zoom-in duration-300"
       >
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-xl font-black text-base-content flex items-center gap-2">

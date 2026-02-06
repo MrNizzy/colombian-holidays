@@ -9,7 +9,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Año Nuevo': {
     description:
       'Celebración del inicio del calendario gregoriano. En Colombia se acostumbra celebrar con cenas familiares, uvas y quema de muñecos de "Año Viejo".',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/andres-gomez-h9nFGYFUiAo-unsplash.avif',
     facts: [
       'Es un día festivo oficial en casi todo el mundo.',
       'En Colombia, muchas familias realizan "agüeros" como correr con una maleta para viajar.',
@@ -19,7 +19,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Epifanía (Reyes Magos)': {
     description:
       'Conmemora la visita de los Reyes Magos al niño Jesús. Es el cierre tradicional de las festividades navideñas.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/mike-swigunski-6TTRv195rfo-unsplash.avif',
     facts: [
       'En Colombia, si cae en otro día, se traslada al lunes siguiente (Ley Emiliani).',
       'Es tradicional regalar dulces o pequeños detalles.',
@@ -29,7 +29,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Día de San José': {
     description:
       'Homenaje a San José, esposo de la Virgen María. También se celebra el Día del Hombre en Colombia.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'San José es considerado el patrono de los trabajadores.',
       'Es un día para reconocer el papel de los padres y figuras masculinas.',
@@ -38,7 +38,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Jueves Santo': {
     description: 'Conmemora la Última Cena de Jesús con sus apóstoles y el lavatorio de los pies.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Es parte fundamental de la Semana Santa.',
       'Muchos colombianos visitan los siete templos.',
@@ -47,7 +47,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Viernes Santo': {
     description: 'Día de reflexión y respeto que conmemora la pasión y muerte de Jesús en la cruz.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Se guarda abstinencia de carnes rojas.',
       'Es el día de mayor recogimiento en la Semana Santa colombiana.',
@@ -57,7 +57,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Día del trabajo': {
     description:
       'Homenaje a los movimientos obreros que lucharon por mejores condiciones laborales.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Se celebra internacionalmente el 1 de mayo.',
       'Es un día de descanso remunerado para todos los sectores.',
@@ -66,7 +66,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Ascención de Jesús': {
     description: 'Celebra la ascensión de Jesucristo al cielo, 40 días después de su resurrección.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'En Colombia se traslada al lunes siguiente.',
       'Es una de las festividades cristianas más antiguas.',
@@ -75,7 +75,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Corpus Christi': {
     description: 'Festividad destinada a celebrar la presencia de Cristo en la Eucaristía.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Se celebra 60 días después del Domingo de Resurrección.',
       'En Anolaima (Cundinamarca) se celebra con grandes arreglos de frutas.',
@@ -85,7 +85,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Sagrado corazón de Jesús': {
     description:
       'Devoción referida al corazón físico de Jesús de Nazaret como símbolo de amor divino.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Colombia fue consagrada al Sagrado Corazón en 1902.',
       'Es una devoción muy arraigada en la cultura paisa y del centro del país.',
@@ -94,7 +94,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'San Pedro y San Pablo': {
     description: 'Homenaje a los dos apóstoles pilares de la Iglesia Católica.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Coincide con las famosas fiestas del San Pedro en el Huila y Tolima.',
       'Es uno de los puentes festivos más importantes del año.',
@@ -103,7 +103,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Día de la independencia': {
     description: 'Conmemora el grito de independencia de Colombia del Imperio Español en 1810.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Es el día nacional de Colombia.',
       'El suceso del "Florero de Llorente" fue el detonante.',
@@ -113,19 +113,19 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Batalla de Boyacá': {
     description:
       'Conmemora la victoria definitiva del ejército libertador sobre las tropas realistas en 1819.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: ['Es el día del Ejército Nacional.', 'Ocurrió en el Puente de Boyacá.'],
     activities: ['Desfiles patrióticos', 'Visitas al Puente de Boyacá'],
   },
   'Asunción de la Virgen': {
     description: 'Celebra la asunción del cuerpo y el alma de la Virgen María al cielo.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: ['Es dogma de fe desde 1950.', 'Es una de las festividades marianas más importantes.'],
     activities: ['Procesiones marianas', 'Misas solemnes'],
   },
   'Día de la raza': {
     description: 'Conmemora el descubrimiento de América y el encuentro de diversas culturas.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Ahora también se conoce como el Día de la Diversidad Étnica y Cultural.',
       'Se celebra el 12 de octubre o el lunes siguiente.',
@@ -134,7 +134,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Todos los santos': {
     description: 'Día dedicado a todos los santos conocidos y desconocidos que están en el cielo.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Sigue a la celebración de Halloween (noche anterior).',
       'Es un día de recogimiento y oración por los difuntos.',
@@ -143,7 +143,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Independencia de Cartagena': {
     description: 'Conmemora la declaración de Cartagena como estado libre e independiente en 1811.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'Cartagena fue la primera ciudad en declararse totalmente independiente.',
       'Se celebra con el Reinado Nacional de la Belleza.',
@@ -153,7 +153,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Inmaculada concepción': {
     description:
       'Celebra que la Virgen María fue concebida sin pecado original. Es el inicio oficial de la Navidad en Colombia.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'En la víspera (7 de diciembre) se celebra el "Día de las Velitas".',
       'Es uno de los días más iluminados y bellos del año en Colombia.',
@@ -162,7 +162,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   Navidad: {
     description: 'Conmemoración del nacimiento de Jesucristo en Belén.',
-    image: 'https://th.bing.com/th/id/R.a67110aac93f883ab96f144ea32e081c?rik=oCtR%2fe0KZiB64w&pid=ImgRaw&r=0',
+    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
     facts: [
       'En Colombia es el día de entrega de regalos (Traído del Niño Dios).',
       'Es la celebración familiar más grande del año.',
