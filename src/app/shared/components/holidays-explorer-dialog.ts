@@ -19,7 +19,7 @@ import { ColombianHolidays, Holiday } from '../utils/holidaysRule';
       class="modal modal-open modal-bottom sm:modal-middle transition-all duration-300 backdrop-blur-sm bg-base-300/40"
     >
       <div
-        class="modal-box p-0 overflow-hidden border border-white/10 shadow-2xl w-full sm:max-w-2xl bg-base-100/95 backdrop-blur-md animate-in fade-in zoom-in duration-300"
+        class="modal-box p-0 border border-white/10 shadow-2xl w-full sm:max-w-2xl bg-base-100/95 backdrop-blur-md animate-in fade-in zoom-in duration-300"
       >
         <!-- Modal Header -->
         <div class="flex items-center justify-between p-6 border-b border-base-content/5">
@@ -116,10 +116,30 @@ import { ColombianHolidays, Holiday } from '../utils/holidaysRule';
                 </div>
 
                 <div class="p-6 -mt-10 relative z-10">
-                  <div
-                    class="badge badge-primary badge-outline font-bold mb-2 uppercase tracking-wider text-[10px]"
-                  >
-                    {{ getTranslatedCategory(selectedHoliday()?.category) }}
+                  <div class="dropdown dropdown-bottom dropdown-start group/cat">
+                    <div
+                      tabindex="0"
+                      role="button"
+                      class="badge badge-primary badge-outline font-bold mb-2 uppercase tracking-wider text-[10px] cursor-help hover:bg-primary hover:text-primary-content transition-all"
+                    >
+                      {{ getTranslatedCategory(selectedHoliday()?.category) }}
+                      <ngx-icon collection="solar" icon="info-circle-linear" class="ml-1 w-3 h-3" />
+                    </div>
+                    <div
+                      tabindex="0"
+                      class="dropdown-content z-20 card card-compact w-64 p-2 shadow-2xl bg-base-200 border border-primary/20 mt-2"
+                    >
+                      <div class="card-body p-3">
+                        <p
+                          class="text-xs font-semibold text-primary uppercase tracking-widest mb-1"
+                        >
+                          {{ getTranslatedCategory(selectedHoliday()?.category) }}
+                        </p>
+                        <p class="text-[11px] leading-relaxed text-base-content/80">
+                          {{ getCategoryDescription(selectedHoliday()?.category) }}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                   <h2 class="text-3xl font-extrabold text-base-content tracking-tight mb-1">
                     {{ selectedHoliday()?.name }}
@@ -248,6 +268,19 @@ export class HolidaysExplorerDialog {
         return 'Basado en Pascua';
       default:
         return category || '';
+    }
+  }
+
+  getCategoryDescription(category?: string): string {
+    switch (category) {
+      case 'FIXED':
+        return 'Se celebra siempre en la misma fecha calendario cada año.';
+      case 'TRANSFERABLE':
+        return 'Si el festivo no cae en lunes, se traslada al lunes siguiente por la Ley Emiliani.';
+      case 'EASTER_BASED':
+        return 'Su fecha se calcula a partir del Domingo de Resurrección (Semana Santa).';
+      default:
+        return '';
     }
   }
 }
