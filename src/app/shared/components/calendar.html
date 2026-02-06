@@ -112,13 +112,22 @@
   <!-- Holiday Detail Dialog -->
   <app-holiday-detail-dialog [holiday]="selectedHoliday()" (close)="closeHolidayDetail()" />
 
-  <!-- Floating Action Button -->
+  <!-- Floating Action Button Right (Go to date) -->
   <button
     (click)="isGoToDateOpen.set(true)"
-    class="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 btn btn-circle btn-lg btn-primary shadow-2xl z-40 hover:scale-110 active:scale-95 transition-all duration-300"
+    class="fixed bottom-8 right-8 sm:bottom-12 sm:right-12 btn btn-circle btn-lg btn-primary shadow-2xl z-40 hover:scale-110 active:scale-95 transition-all duration-300"
     aria-label="Ir a fecha"
   >
     <ngx-icon collection="solar" icon="calendar-mark-bold" width="28" height="28" />
+  </button>
+
+  <!-- Floating Action Button Left (All holidays) -->
+  <button
+    (click)="isAllHolidaysOpen.set(true)"
+    class="fixed bottom-8 left-8 sm:bottom-12 sm:left-12 btn btn-circle btn-lg btn-secondary shadow-2xl z-40 hover:scale-110 active:scale-95 transition-all duration-300"
+    aria-label="Ver todos los festivos"
+  >
+    <ngx-icon collection="solar" icon="globus-bold" width="28" height="28" />
   </button>
 
   <!-- Go To Date Dialog -->
@@ -129,5 +138,10 @@
       (select)="onDateSelected($event)"
       (close)="isGoToDateOpen.set(false)"
     />
+  }
+
+  <!-- All Holidays Explorer Dialog -->
+  @if (isAllHolidaysOpen()) {
+    <app-holidays-explorer-dialog [year]="currentYear()" (close)="isAllHolidaysOpen.set(false)" />
   }
 </div>

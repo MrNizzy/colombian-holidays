@@ -4,6 +4,7 @@ import { NgxIcon } from 'ngx-icons-extra';
 import { ListHolidays } from './list-holidays';
 import { HolidayDetailDialog } from './holiday-detail-dialog';
 import { GoToDateDialog } from './go-to-date-dialog';
+import { HolidaysExplorerDialog } from './holidays-explorer-dialog';
 
 interface CalendarDay {
   date: Date;
@@ -15,7 +16,7 @@ interface CalendarDay {
 
 @Component({
   selector: 'app-calendar',
-  imports: [NgxIcon, ListHolidays, HolidayDetailDialog, GoToDateDialog],
+  imports: [NgxIcon, ListHolidays, HolidayDetailDialog, GoToDateDialog, HolidaysExplorerDialog],
   templateUrl: './calendar.html',
   styleUrls: ['./calendar.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,6 +31,7 @@ export class Calendar {
   readonly today = signal(new Date());
   readonly selectedHoliday = signal<Holiday | null>(null);
   readonly isGoToDateOpen = signal(false);
+  readonly isAllHolidaysOpen = signal(false);
 
   readonly monthYear = computed(() => {
     const date = this.currentMonth();
