@@ -19,7 +19,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Epifanía (Reyes Magos)': {
     description:
       'Conmemora la visita de los Reyes Magos al niño Jesús. Es el cierre tradicional de las festividades navideñas.',
-    image: 'assets/banners/mike-swigunski-6TTRv195rfo-unsplash.avif',
+    image: 'assets/banners/reyes.avif',
     facts: [
       'En Colombia, si cae en otro día, se traslada al lunes siguiente (Ley Emiliani).',
       'Es tradicional regalar dulces o pequeños detalles.',
@@ -29,7 +29,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Día de San José': {
     description:
       'Homenaje a San José, esposo de la Virgen María. También se celebra el Día del Hombre en Colombia.',
-    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
+    image: 'assets/banners/san_jose.avif',
     facts: [
       'San José es considerado el patrono de los trabajadores.',
       'Es un día para reconocer el papel de los padres y figuras masculinas.',
@@ -38,7 +38,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Jueves Santo': {
     description: 'Conmemora la Última Cena de Jesús con sus apóstoles y el lavatorio de los pies.',
-    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
+    image: 'assets/banners/jueves_santo.avif',
     facts: [
       'Es parte fundamental de la Semana Santa.',
       'Muchos colombianos visitan los siete templos.',
@@ -47,7 +47,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Viernes Santo': {
     description: 'Día de reflexión y respeto que conmemora la pasión y muerte de Jesús en la cruz.',
-    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
+    image: 'assets/banners/viernes_santo.avif',
     facts: [
       'Se guarda abstinencia de carnes rojas.',
       'Es el día de mayor recogimiento en la Semana Santa colombiana.',
@@ -57,7 +57,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Día del trabajo': {
     description:
       'Homenaje a los movimientos obreros que lucharon por mejores condiciones laborales.',
-    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
+    image: 'assets/banners/trabajo.avif',
     facts: [
       'Se celebra internacionalmente el 1 de mayo.',
       'Es un día de descanso remunerado para todos los sectores.',
@@ -66,7 +66,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Ascención de Jesús': {
     description: 'Celebra la ascensión de Jesucristo al cielo, 40 días después de su resurrección.',
-    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
+    image: 'assets/banners/ascension.avif',
     facts: [
       'En Colombia se traslada al lunes siguiente.',
       'Es una de las festividades cristianas más antiguas.',
@@ -75,7 +75,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Corpus Christi': {
     description: 'Festividad destinada a celebrar la presencia de Cristo en la Eucaristía.',
-    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
+    image: 'assets/banners/corpus.avif',
     facts: [
       'Se celebra 60 días después del Domingo de Resurrección.',
       'En Anolaima (Cundinamarca) se celebra con grandes arreglos de frutas.',
@@ -103,7 +103,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   },
   'Día de la independencia': {
     description: 'Conmemora el grito de independencia de Colombia del Imperio Español en 1810.',
-    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
+    image: 'assets/banners/independencia.avif',
     facts: [
       'Es el día nacional de Colombia.',
       'El suceso del "Florero de Llorente" fue el detonante.',
@@ -113,7 +113,7 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
   'Batalla de Boyacá': {
     description:
       'Conmemora la victoria definitiva del ejército libertador sobre las tropas realistas en 1819.',
-    image: 'assets/banners/ricardo-gomez-angel-L6T_6Rp2iEk-unsplash.avif',
+    image: 'assets/banners/boyaca.avif',
     facts: ['Es el día del Ejército Nacional.', 'Ocurrió en el Puente de Boyacá.'],
     activities: ['Desfiles patrióticos', 'Visitas al Puente de Boyacá'],
   },
