@@ -1,10 +1,11 @@
-import { Component, ChangeDetectionStrategy, signal, computed, input, effect } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, computed, input, effect, inject, AfterViewInit } from '@angular/core';
 import { ColombianHolidays, isSameDate, Holiday } from '../utils/holidaysRule';
 import { NgxIcon } from 'ngx-icons-extra';
 import { ListHolidays } from './list-holidays';
 import { HolidayDetailDialog } from './holiday-detail-dialog';
 import { GoToDateDialog } from './go-to-date-dialog';
 import { HolidaysExplorerDialog } from './holidays-explorer-dialog';
+import { NotificationService } from '../services/notification.service';
 
 interface CalendarDay {
   date: Date;
@@ -24,7 +25,7 @@ interface CalendarDay {
     class: 'block w-full',
   },
 })
-export class Calendar {
+export class Calendar implements AfterViewInit {
   readonly initialMonth = input<Date | null>(null);
 
   readonly currentMonth = signal(this.initialMonth() || new Date());
@@ -96,12 +97,18 @@ export class Calendar {
 
   readonly currentYear = computed(() => this.currentMonth().getFullYear());
 
+  private readonly notifications = inject(NotificationService);
+
   constructor() {
     effect(() => {
       if (this.initialMonth()) {
         this.currentMonth.set(this.initialMonth()!);
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.notifications.checkAndNotify();
   }
 
   previousMonth(): void {
