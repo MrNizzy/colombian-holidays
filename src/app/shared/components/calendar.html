@@ -1,139 +1,151 @@
-<div class="calendar-container mx-auto p-2 sm:p-4 pb-28 sm:pb-36">
-  <!-- Header with navigation -->
-  <div class="flex items-center justify-between mb-4 sm:mb-6 gap-2">
-    <button
-      (click)="previousMonth()"
-      class="btn btn-sm sm:btn-lg btn-outline flex-none tooltip tooltip-right"
-      data-tip="Mes anterior"
-      [attr.aria-label]="'Mes anterior'"
-    >
-      <ngx-icon collection="solar" icon="arrow-left-linear" [width]="18" [height]="18" />
-      <span class="hidden sm:inline ml-2">Anterior</span>
-    </button>
-
-    <div class="flex-1 text-center min-w-0">
-      <h2
-        class="text-lg sm:text-2xl font-black text-base-content first-letter:uppercase tracking-tight leading-none"
-      >
-        {{ monthYear() }}
-      </h2>
-    </div>
-
-    <button
-      (click)="nextMonth()"
-      class="btn btn-sm sm:btn-lg btn-outline flex-none tooltip tooltip-left"
-      data-tip="Próximo mes"
-      [attr.aria-label]="'Próximo mes'"
-    >
-      <span class="hidden sm:inline mr-2">Siguiente</span>
-      <ngx-icon collection="solar" icon="arrow-right-linear" [width]="18" [height]="18" />
-    </button>
-  </div>
-
-  <!-- Quick Actions -->
-  <div class="flex items-center justify-center gap-4 mb-4">
-    <button
-      (click)="goToToday()"
-      class="btn btn-xs sm:btn-sm btn-ghost hover:bg-primary/10 text-primary"
-      [attr.aria-label]="'Ir a hoy'"
-    >
-      <ngx-icon collection="solar" icon="calendar-minimalistic-linear" class="mr-1" />
-      Hoy
-    </button>
+<div class="max-w-4xl mx-auto px-3 sm:px-6 pb-28 sm:pb-36">
+  <!-- Calendar Card -->
+  <div
+    class="bg-base-100 rounded-(--radius-box) shadow-lg shadow-base-content/5 border border-base-content/10 overflow-hidden transition-colors duration-300"
+  >
+    <!-- Calendar Header with navigation -->
     <div
-      class="flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wider opacity-60"
+      class="bg-linear-to-r from-primary/10 via-transparent to-secondary/10 border-b border-base-content/5 px-4 sm:px-6 py-4"
     >
-      <div class="w-2.5 h-2.5 bg-secondary rounded-full"></div>
-      festivo
-    </div>
-  </div>
-
-  <!-- Calendar table -->
-  <div class="w-full">
-    <div
-      class="grid grid-cols-7 gap-1 sm:gap-2 bg-base-300/30 p-1 rounded-xl sm:rounded-2xl border border-base-content/5"
-    >
-      <!-- Days of week header -->
-      @for (day of daysOfWeek; track $index) {
-        <div
-          class="bg-primary/10 text-primary text-center font-black py-2 sm:py-3 rounded-lg sm:rounded-(--radius-field) text-[10px] sm:text-xs uppercase tracking-widest"
+      <div class="flex items-center justify-between gap-2">
+        <button
+          (click)="previousMonth()"
+          class="btn btn-sm sm:btn-md btn-ghost hover:bg-base-200 flex-none"
+          [attr.aria-label]="'Mes anterior'"
         >
-          {{ day.substring(0, 3) }}
-        </div>
-      }
+          <ngx-icon collection="solar" icon="arrow-left-linear" width="18" height="18" />
+          <span class="hidden sm:inline text-sm font-semibold">Anterior</span>
+        </button>
 
-      <!-- Calendar days -->
-      @for (week of weeks(); track $index) {
-        @for (day of week; track day.date.getTime()) {
-          <div
-            [class]="getDayClasses(day)"
-            (click)="openHolidayDetail(day.holiday)"
-            class="cursor-pointer group relative flex flex-col items-center justify-center sm:items-start sm:justify-start"
-            [class.tooltip]="day.isHoliday"
-            [attr.data-tip]="day.isHoliday ? day.holiday?.name : null"
+        <div class="flex flex-col items-center min-w-0">
+          <h2
+            class="text-xl sm:text-3xl font-black text-base-content first-letter:uppercase tracking-tight leading-none"
           >
-            <!-- Day number -->
-            <div
-              class="text-xl sm:text-2xl font-extrabold z-10 transition-transform group-hover:scale-110"
-            >
-              {{ day.date.getDate() }}
-            </div>
+            {{ monthYear() }}
+          </h2>
+          <span
+            class="text-[10px] sm:text-xs font-semibold text-base-content/30 uppercase tracking-widest"
+          >
+            {{ currentYear() }}
+          </span>
+        </div>
 
-            <!-- Mobile Holiday Dot -->
-            @if (day.isHoliday) {
-              <div
-                class="sm:hidden absolute bottom-1.5 w-1.5 h-1.5 bg-secondary rounded-full"
-              ></div>
-            }
+        <button
+          (click)="nextMonth()"
+          class="btn btn-sm sm:btn-md btn-ghost hover:bg-base-200 flex-none"
+          [attr.aria-label]="'Próximo mes'"
+        >
+          <span class="hidden sm:inline text-sm font-semibold">Siguiente</span>
+          <ngx-icon collection="solar" icon="arrow-right-linear" width="18" height="18" />
+        </button>
+      </div>
 
-            <!-- Desktop Indicators -->
-            <div class="hidden sm:block w-full mt-1">
-              @if (day.isToday) {
-                <div
-                  class="text-[10px] font-bold text-primary flex items-center gap-1 bg-primary/10 px-1.5 py-0.5 rounded-md"
-                >
-                  <ngx-icon collection="solar" icon="calendar-add-linear" [width]="12" />
-                  <span>Hoy</span>
-                </div>
-              }
+      <!-- Quick Actions Row -->
+      <div class="flex items-center justify-center gap-4 mt-3">
+        <button
+          (click)="goToToday()"
+          class="btn btn-xs btn-ghost hover:bg-primary/10 text-primary font-bold"
+          [attr.aria-label]="'Ir a hoy'"
+        >
+          <ngx-icon collection="solar" icon="calendar-minimalistic-linear" class="mr-1" width="14" />
+          Hoy
+        </button>
+        <div
+          class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-base-content/40"
+        >
+          <div class="w-2 h-2 rounded-full bg-secondary"></div>
+          festivo
+        </div>
+        <div
+          class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-base-content/40"
+        >
+          <div class="w-2 h-2 rounded-full bg-primary"></div>
+          hoy
+        </div>
+      </div>
+    </div>
 
-              @if (day.isHoliday) {
-                <div
-                  class="text-[10px] leading-tight font-bold text-secondary bg-secondary/10 px-1.5 py-1 rounded-md mt-1 line-clamp-2"
-                >
-                  {{ day.holiday?.name }}
-                </div>
-              }
-            </div>
+    <!-- Calendar Grid -->
+    <div class="p-3 sm:p-5">
+      <div class="grid grid-cols-7 gap-1 sm:gap-1.5">
+        <!-- Days of week header -->
+        @for (day of daysOfWeek; track $index) {
+          <div
+            class="text-center font-black py-2 rounded-lg text-[10px] sm:text-xs uppercase tracking-widest bg-base-200/50 text-base-content/50"
+          >
+            {{ day.substring(0, 3) }}
           </div>
         }
-      }
+
+        <!-- Calendar days -->
+        @for (week of weeks(); track $index) {
+          @for (day of week; track day.date.getTime()) {
+            <div
+              [class]="getDayClasses(day)"
+              (click)="openHolidayDetail(day.holiday)"
+              [class.tooltip]="day.isHoliday"
+              [attr.data-tip]="day.isHoliday ? day.holiday?.name : null"
+            >
+              <!-- Day number -->
+              <div
+                class="text-lg sm:text-2xl font-extrabold leading-none transition-transform group-hover:scale-110"
+              >
+                {{ day.date.getDate() }}
+              </div>
+
+              <!-- Mobile Holiday Indicator -->
+              @if (day.isHoliday) {
+                <div class="sm:hidden w-1 h-1 rounded-full bg-secondary mt-0.5"></div>
+              }
+
+              <!-- Desktop Indicators -->
+              <div class="hidden sm:flex flex-col w-full gap-0.5 mt-1">
+                @if (day.isToday && !day.isHoliday) {
+                  <div
+                    class="text-[9px] font-bold text-primary text-center bg-primary/10 px-1 py-0.5 rounded"
+                  >
+                    Hoy
+                  </div>
+                }
+                @if (day.isHoliday) {
+                  <div
+                    class="text-[9px] leading-tight font-bold text-secondary text-center bg-secondary/10 px-1 py-0.5 rounded line-clamp-2"
+                  >
+                    {{ day.holiday?.name }}
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        }
+      </div>
     </div>
   </div>
 
+  <!-- Month Holidays List -->
   <app-list-holidays [month]="currentMonth()" (holidayClick)="openHolidayDetail($event)" />
 
   <!-- Holiday Detail Dialog -->
   <app-holiday-detail-dialog [holiday]="selectedHoliday()" (close)="closeHolidayDetail()" />
 
-  <!-- Floating Action Button Right (Go to date) -->
+  <!-- Floating Action Button: Go to Date -->
   <button
     (click)="isGoToDateOpen.set(true)"
-    class="fixed bottom-8 right-8 sm:bottom-12 sm:right-12 btn btn-circle btn-lg btn-primary shadow-2xl z-40 hover:scale-110 active:scale-95 transition-all duration-300 tooltip tooltip-left"
-    data-tip="Ir a una fecha específica"
-    aria-label="Ir a fecha"
+    class="fixed bottom-8 right-8 sm:bottom-12 sm:right-12 btn btn-circle btn-primary shadow-xl shadow-primary/20 z-40 hover:scale-110 active:scale-95 transition-all duration-300 tooltip tooltip-left border-2 border-white/20"
+    data-tip="Ir a una fecha"
+    aria-label="Ir a una fecha específica"
   >
-    <ngx-icon collection="solar" icon="calendar-mark-bold" width="28" height="28" />
+    <ngx-icon collection="solar" icon="calendar-mark-bold" width="24" height="24" />
   </button>
 
-  <!-- Floating Action Button Left (All holidays) -->
+  <!-- Floating Action Button: All Holidays -->
   <button
     (click)="isAllHolidaysOpen.set(true)"
-    class="fixed bottom-8 left-8 sm:bottom-12 sm:left-12 btn btn-circle btn-lg btn-secondary shadow-2xl z-40 hover:scale-110 active:scale-95 transition-all duration-300 tooltip tooltip-right"
-    data-tip="Ver todos los festivos del año"
-    aria-label="Ver todos los festivos"
+    class="fixed bottom-20 right-8 sm:bottom-24 sm:right-12 btn btn-circle btn-secondary shadow-xl shadow-secondary/20 z-40 hover:scale-110 active:scale-95 transition-all duration-300 tooltip tooltip-left border-2 border-white/20"
+    data-tip="Ver todos los festivos"
+    aria-label="Ver todos los festivos del año"
   >
-    <ngx-icon collection="solar" icon="globus-bold" width="28" height="28" />
+    <ngx-icon collection="solar" icon="globus-bold" width="24" height="24" />
   </button>
 
   <!-- Go To Date Dialog -->

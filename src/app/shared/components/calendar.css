@@ -2,18 +2,24 @@
   display: block;
 }
 
-/* Smooth transitions for calendar navigation */
-::ng-deep .calendar-container > div {
-  animation: fadeIn 0.2s ease-in-out;
+/* Fade transition for calendar content */
+.calendar-fade {
+  animation: calendarFadeIn 0.25s ease-out;
 }
 
-@keyframes fadeIn {
+@keyframes calendarFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Smooth tooltip appearance */
+.tooltip::before,
+.tooltip::after {
+  transition: opacity 0.15s ease-in-out;
 }

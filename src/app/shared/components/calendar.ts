@@ -137,20 +137,20 @@ export class Calendar {
 
   getDayClasses(day: CalendarDay): string {
     const base =
-      'relative p-1.5 sm:p-2 min-h-16 sm:min-h-20 rounded-(--radius-field) border-2 transition-all duration-200';
+      'relative flex flex-col items-center justify-start p-1.5 sm:p-2 min-h-14 sm:min-h-20 rounded-xl transition-all duration-200 cursor-pointer group';
+
+    if (!day.isCurrentMonth) {
+      return `${base} opacity-15 pointer-events-none`;
+    }
 
     if (day.isToday) {
-      return `${base} bg-primary/20 text-primary font-bold border-primary shadow-sm`;
+      return `${base} bg-primary/15 text-primary font-bold ring-2 ring-primary ring-offset-1 ring-offset-base-100 shadow-sm shadow-primary/10`;
     }
 
     if (day.isHoliday) {
-      return `${base} bg-secondary/10 border-secondary/30 text-secondary font-semibold hover:bg-secondary/20`;
+      return `${base} bg-secondary/8 text-secondary font-semibold hover:bg-secondary/15 hover:shadow-sm hover:shadow-secondary/5`;
     }
 
-    if (!day.isCurrentMonth) {
-      return `${base} opacity-20 bg-base-100 border-transparent`;
-    }
-
-    return `${base} bg-base-100 border-base-200 hover:border-primary/50 hover:bg-primary/5`;
+    return `${base} bg-base-100 hover:bg-primary/5 hover:shadow-sm`;
   }
 }
