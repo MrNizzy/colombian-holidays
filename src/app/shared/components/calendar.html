@@ -1,4 +1,4 @@
-<div class="max-w-4xl mx-auto px-3 sm:px-6 pb-28 sm:pb-36">
+<div class="max-w-4xl mx-auto px-3 sm:px-6 pt-4 sm:pt-6 pb-24">
   <!-- Calendar Card -->
   <div
     class="bg-base-100 rounded-(--radius-box) shadow-lg shadow-base-content/5 border border-base-content/10 overflow-hidden transition-colors duration-300"
@@ -128,25 +128,27 @@
   <!-- Holiday Detail Dialog -->
   <app-holiday-detail-dialog [holiday]="selectedHoliday()" (close)="closeHolidayDetail()" />
 
-  <!-- Floating Action Button: Go to Date -->
-  <button
-    (click)="isGoToDateOpen.set(true)"
-    class="fixed bottom-8 right-8 sm:bottom-12 sm:right-12 btn btn-circle btn-primary shadow-xl shadow-primary/20 z-40 hover:scale-110 active:scale-95 transition-all duration-300 tooltip tooltip-left border-2 border-white/20"
-    data-tip="Ir a una fecha"
-    aria-label="Ir a una fecha específica"
+  <!-- Floating Action Button Group -->
+  <div
+    class="fixed bottom-8 right-8 sm:bottom-12 sm:right-12 z-40 join join-vertical shadow-xl"
   >
-    <ngx-icon collection="solar" icon="calendar-mark-bold" width="24" height="24" />
-  </button>
-
-  <!-- Floating Action Button: All Holidays -->
-  <button
-    (click)="isAllHolidaysOpen.set(true)"
-    class="fixed bottom-20 right-8 sm:bottom-24 sm:right-12 btn btn-circle btn-secondary shadow-xl shadow-secondary/20 z-40 hover:scale-110 active:scale-95 transition-all duration-300 tooltip tooltip-left border-2 border-white/20"
-    data-tip="Ver todos los festivos"
-    aria-label="Ver todos los festivos del año"
-  >
-    <ngx-icon collection="solar" icon="globus-bold" width="24" height="24" />
-  </button>
+    <button
+      (click)="isGoToDateOpen.set(true)"
+      class="join-item btn btn-circle btn-primary shadow-inner hover:scale-105 active:scale-95 transition-all duration-300 tooltip tooltip-left before:z-50"
+      data-tip="Ir a una fecha"
+      aria-label="Ir a una fecha específica"
+    >
+      <ngx-icon collection="solar" icon="calendar-mark-bold" width="22" height="22" />
+    </button>
+    <button
+      (click)="isAllHolidaysOpen.set(true)"
+      class="join-item btn btn-circle btn-secondary shadow-inner hover:scale-105 active:scale-95 transition-all duration-300 tooltip tooltip-left before:z-50"
+      data-tip="Ver todos los festivos"
+      aria-label="Ver todos los festivos del año"
+    >
+      <ngx-icon collection="solar" icon="globus-bold" width="22" height="22" />
+    </button>
+  </div>
 
   <!-- Go To Date Dialog -->
   @if (isGoToDateOpen()) {
