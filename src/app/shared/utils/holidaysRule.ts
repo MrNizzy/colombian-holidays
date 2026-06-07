@@ -146,6 +146,11 @@ const HOLIDAY_DEFINITIONS: HolidayDefinition[] = [
     rule: new TransferableToMonday(6, 29),
   },
   {
+    name: 'Día de la Virgen de Chiquinquirá',
+    category: Category.TRANSFERABLE,
+    rule: new TransferableToMonday(7, 9),
+  },
+  {
     name: 'Asunción de la Virgen',
     category: Category.TRANSFERABLE,
     rule: new TransferableToMonday(8, 15),

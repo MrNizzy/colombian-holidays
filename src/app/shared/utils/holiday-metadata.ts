@@ -101,6 +101,20 @@ export const HOLIDAY_METADATA: Record<string, HolidayMetadata> = {
     ],
     activities: ['Festivales folclóricos', 'Reinados y cabalgatas'],
   },
+  'Día de la Virgen de Chiquinquirá': {
+    description:
+      'Celebra la devoción a Nuestra Señora del Rosario de Chiquinquirá, patrona de Colombia. La imagen original reposa en la Basílica de Chiquinquirá (Boyacá) y es centro de peregrinación nacional.',
+    image: 'assets/banners/chiquinquira.avif',
+    facts: [
+      'Declarada patrona de Colombia por el Papa Benedicto XV en 1919.',
+      'El milagro de la renovación de la imagen ocurrió el 26 de diciembre de 1586.',
+    ],
+    activities: [
+      'Peregrinación a la Basílica de Chiquinquirá',
+      'Misas y celebraciones religiosas',
+      'Feria artesanal y cultural en Boyacá',
+    ],
+  },
   'Día de la independencia': {
     description: 'Conmemora el grito de independencia de Colombia del Imperio Español en 1810.',
     image: 'assets/banners/independencia.avif',
